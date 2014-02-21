@@ -47,8 +47,54 @@ around $80\%$ of the hashrates where mined by one of the 4 largest mining pools,
 
 \section{Theoretical Model}
 
+Let $J$ be the numinal amount of bitcoins that will be transfered to the winning miner and $D$ the difficulty level\footnote{We do not differentiate between the source of $J$ at this point. $D$ is essentialy the number of potential hashs a miner has to cover in oreder to find the solution with probability 1. }
+
+Miner $i$ is characterized by his processing power $\theta_{i}$ and the cost of processing he endores $c_{i}$.
+
+For simplicity we assume the probability of winning the lottary is proportional to his proccesing power and the relevant difficulty.
+
+Working alone the profit of a miner can be formulated as:
+\begin{equation}\label{EQ:Profit_Work_Alone}
+\frac{\theta_{i}}{D}J-c_{i}
+\end{equation}
+
+We will differentiate between two types of minders , A strong miner noted with the subscript $s$ and a weak miner noted with the subscript $w$.
+
+Miner of type $s$ can become a pool manager by dividing $(1-\rho)$ of his resources to managing a pool.
+
+Once $s$ decides to manage a pool he offers a contract to $w$. The contract can be either a transfer of fixed amount of bitcoins  we will note $W$ or a cut in the winnings of the pool based on his relative expected contribution to the pool $\frac{\theta_{w}}{\rho \theta_{s}+\theta_{w}}$
+
+Miner of type $w$ can choose whether or not to join a pool and wether he wants to abuse the pool or to be an honest participant.
+
+\subsection{Case 1 - Both miner types are small relative to the total processing power of the minning network}
+
+In this case we say $\theta_{s}/D\rightarrow 0$.
+
+
+If the type $w$ miner chooses to be independent he can expect a profit of:
+
+\begin{equation}\label{EQ:Profit_Weak_ind}
+\frac{\theta_{w}}{D}J-c_{w}
+\end{equation}
+
+If he joins the pool he can divide his time between indepentent work and submitting shares to the pool.
+
+Following Raulo(2011) we know the optimal strategy for a worker is to devote a share $\gamma>0$ of his resources to independent mining.
+
+Using this strategy the profit of the worker will be
+
+\begin{equation}\label{EQ:Profit_Weak_pool}
+\frac{\gamma\theta_{w}}{D}J+ \frac{ \theta_{w}}{\rho \theta_{s}+ \theta_{w}} \frac{\rho \theta_{s}+(1-\gamma) \theta_{w}}{D} J -c_{w} 
+\end{equation}
+
+
+For simplicity we will treat the most extreme case of pool abuse Raulo(2011), Where we assume the worker can recive the maximum wage without devoting any affort to the pool meaning $\gamma=1$.
+
+
+\begin{equation}\label{EQ:Profit_Weak_pool_abuse}
+\frac{\theta_{w}}{D}J+ \frac{ \theta_{w}}{\rho \theta_{s}+ \theta_{w}} \frac{\rho \theta_{s}}{D} J -c_{w} 
+\end{equation}
 
 
 
- 
 \end{document}
